@@ -162,18 +162,10 @@ AUDIENCE
 Explain who your audience is.  (In particular, tell readers if the
 workshop is only open to people from a particular institution.
 {% endcomment %}
-{% if info.carpentry == "swc" %}
-{% include swc/who.html %}
-{% elsif info.carpentry == "dc" %}
-{% include dc/who.html %}
-{% elsif info.carpentry == "lc" %}
-{% include lc/who.html %}
-{% elsif info.carpentry == "ds" %}
 <div style="display: flex"><div>
      <strong>Who:&nbsp;</strong>
      </div>
-     <div markdown=1>{% remote_include {{lesson_meta}}/who.md %}</div></div>
-{% endif %}
+     <div markdown=1>{% remote_include https://raw.githubusercontent.com/esciencecenter-digital-skills/workshop-metadata/main/dc-socsci-python/who.md %}</div></div>
 
 {% comment %}
 LOCATION
@@ -401,29 +393,12 @@ of code below the Schedule `<h2>` header below with
 `{% include custom-schedule.html %}`.
 {% endcomment %}
 
-{% if info.carpentry == "ds" %}
 <h2 id="syllabus">Syllabus</h2>
-{% remote_include {{lesson_meta}}/syllabus.md %}
-{% endif %}
+{% remote_include https://raw.githubusercontent.com/esciencecenter-digital-skills/workshop-metadata/main/dc-socsci-python/syllabus.md %}
 
 <h2 id="schedule">Schedule</h2>
 
-{% if info.carpentry == "swc" %}
-{% include swc/schedule.html %}
-{% elsif info.carpentry == "dc" %}
-{% include dc/schedule.html %}
-{% elsif info.carpentry == "lc" %}
-{% include lc/schedule.html %}
-{% elsif info.carpentry == "ds" %}
-{% remote_include {{lesson_meta}}/schedule.md %}
-{% elsif info.carpentry == "pilot" %}
-The lesson taught in this workshop is being piloted and a precise schedule is yet to be established. The workshop will include regular breaks. If you would like to know the timing of these breaks in advance, please [contact the workshop organisers](#contact). For a list of lesson sections and estimated timings, [visit the lesson homepage]({{ site.lesson_site }}).
-{% comment %}
-Edit/replace the text above if you want to include a schedule table.
-See the contents of the _includes/custom-schedule.html file for an example of
-how one of these schedule tables is constructed.
-{% endcomment %}
-{% endif %}
+{% include custom-schedule.html %}
 
 <hr/>
 
@@ -482,28 +457,38 @@ These are the installation instructions for the tools used
 during the workshop.
 {% endcomment %}
 
-<h3 id="software-setup">Software setup</h3>
+<h3>Data</h3>
+ This workshop uses a tabular interview dataset from the [SAFI Teaching Database](https://figshare.com/articles/dataset/SAFI_Survey_Results/6262019) and teaches data cleaning, management, analysis and visualization. We use a single dataset throughout the workshop to model the data management and analysis workflow that a researcher would use.
 
-{% if info.carpentry == "swc" %}
-{% include swc/setup.html %}
-{% elsif info.carpentry == "dc" %}
-{% include dc/setup.html %}
-{% elsif info.carpentry == "lc" %}
-{% include lc/setup.html %}
-{% elsif info.carpentry == "ds" %}
-{% capture content %}
-{% remote_include {{lesson_meta}}/setup.md %}
-{% endcapture %}
-{% if content contains "/setup.md" %}
-  {% capture setup %}
-  {% remote_include https://raw.githubusercontent.com/{{content | strip}} %}
-  {% endcapture %}
-  {{ setup | split: "---" | last}}
-{% else %}
-  {{ content }}
-{% endif %}
-{% elsif info.carpentry == "pilot" %}
-Please check the "Setup" page of
-[the lesson site]({{ site.lesson_site }}) for instructions to follow
-to obtain the software and data you will need to follow the lesson.
-{% endif %}
+Clicking the [this link](https://figshare.com/ndownloader/articles/6262019/versions/4) will automatically download all of the files to your default download directory as a single compressed
+(`.zip`) file. To expand this file, double click the folder icon in your file navigator application (for Macs, this is the Finder
+application).
+
+<h3>Spreadsheet program</h3>
+
+* To interact with spreadsheets, we can use LibreOffice, Microsoft Excel, Gnumeric, OpenOffice.org, or other programs. 
+Commands may differ a bit between programs, but the general ideas for thinking about spreadsheets are the same. For this workshop, 
+we recommend using either Microsoft Excel (paid software) or LibreOffice (free and open source). Other spreadsheet programs may
+not have all of the features we will be exploring in this workshop.
+
+* To install LibreOffice, go to their [download page](https://www.libreoffice.org/download/download/). The website should
+automatically select the correct option for your operating system. Click the "Download" button. You will go to a page that asks about a
+donation, but you don’t need to make one. Your download should begin automatically. Once the installer is downloaded, double click on it (you may need to open your Downloads folder) and LibreOffice should install.
+
+{% include install_instructions/openrefine.html %}
+{% include install_instructions/python.html %}
+
+<p>To install the packages we’ll be using in the workshop, type the following in an Anaconda
+terminal:</p>
+  <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda <span class="nb">install</span> <span class="nt">-y</span> numpy pandas matplotlib jupyterlab seaborn
+</code></pre></div>  </div>
+
+<p>After installing Anaconda and the workshop packages,
+launch a Jupyter notebook by typing this command from the terminal:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jupyter lab
+</code></pre></div></div>
+
+<p>The notebook should open automatically in your browser. If it does not or you
+wish to use a different browser, open this link: <a href="http://localhost:8888">http://localhost:8888</a>.</p>
+
