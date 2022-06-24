@@ -35,11 +35,7 @@ You can ask questions in the document or chat window and helpers will try to hel
 
 🛠 [Setup](https://esciencecenter-digital-skills.github.io/2022-05-30-dc-socsci-python-nlesc/#setup)
 
-:arrow_down: Download the following files and place them in a single, easily findable folder:
-- [SAFI_clean.csv](https://ndownloader.figshare.com/files/11492171)
-- [SAFI_messy.xlsx](https://ndownloader.figshare.com/files/11502824)
-- [SAFI_dates.xlsx](https://ndownloader.figshare.com/files/11502827)
-- [SAFI_openrefine.csv](https://ndownloader.figshare.com/files/11502815)
+:arrow_down: Download [pandas-data.zip](https://github.com/esciencecenter-digital-skills/2022-05-30-dc-socsci-python-nlesc/raw/main/files/pandas-data.zip)
 
 
 ## 🗓️ Agenda
