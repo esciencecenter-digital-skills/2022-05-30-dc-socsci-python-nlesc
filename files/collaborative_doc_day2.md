@@ -2,7 +2,7 @@
 
 # Collaborative Document
 
-2022-05-30 Data Carpentry with Python (day 2)
+2022-05-31 Data Carpentry with Python (day 2)
 
 Welcome to The Workshop Collaborative Document.
 
